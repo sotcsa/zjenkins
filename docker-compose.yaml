@@ -1,0 +1,21 @@
+enkins_master:
+  image: rsoti/jenkins-jdk11
+  container_name: jenkins
+  user: root
+  environment:
+    - TZ=Europe/Budapest
+    - JENKINS_ADMIN_ID=admin
+    - JENKINS_ADMIN_PASSWORD=${JENKINS_ADMIN_PASSWORD}
+    - JENKINS_TRIGGER=trigger
+    - JENKINS_TRIGGER_PASSWORD=${JENKINS_TRIGGER_PASSWORD}
+    - BASE_URL=http://127.0.0.1:8095/
+  restart: always
+  volumes:
+    - /var/run/docker.sock:/var/run/docker.sock
+    - /usr/bin/docker:/usr/bin/docker
+    - /var/jenkins_home:/var/jenkins_home
+    - /opt/zeeg-release-listener:/opt/zeeg-release-listener
+    - /root/.m2:/root/.m2
+  ports:
+    - 127.0.0.1:2345:2345
+    - 8095:8080

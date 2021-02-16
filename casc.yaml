@@ -1,0 +1,40 @@
+jenkins:
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: ${JENKINS_ADMIN_ID}
+         password: ${JENKINS_ADMIN_PASSWORD}
+       - id: ${JENKINS_TRIGGER}
+         password: ${JENKINS_TRIGGER_PASSWORD}
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+  remotingSecurity:
+    enabled: true
+jobs:
+  - script: >
+      job('Job_DSL_Seed') {
+        scm {
+          git {
+            remote {
+              url 'https://github.com/sotcsa/zjenkins.git'
+            }
+          }
+        }
+        steps {
+          jobDsl {
+            targets 'jobs/**/*.groovy'
+          }
+        }
+      }
+security:
+  queueItemAuthenticator:
+    authenticators:
+    - global:
+        strategy: triggeringUsersAuthorizationStrategy
+unclassified:
+  location:
+    url: ${BASE_URL}
