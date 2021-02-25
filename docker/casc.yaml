@@ -13,6 +13,7 @@ jenkins:
         - "Overall/Administer:admin"
         - "Overall/Read:authenticated"
         - "Job/Build:authenticated"
+        - "Job/Read:authenticated"
   remotingSecurity:
     enabled: true
 jobs:
