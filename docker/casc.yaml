@@ -12,6 +12,7 @@ jenkins:
       permissions:
         - "Overall/Administer:admin"
         - "Overall/Read:authenticated"
+        - "Job/Build:authenticated"
   remotingSecurity:
     enabled: true
 jobs:
