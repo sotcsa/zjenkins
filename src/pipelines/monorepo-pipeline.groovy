@@ -22,9 +22,10 @@ pipeline {
             steps {
                 dir(REPO_DIR) {
                     script {
-                        sh "mvn clean install -DskipTests"
+                        sh "make build/jenkins"
                     }
                 }
             }
         }
+    }
 }
