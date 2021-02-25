@@ -17,6 +17,7 @@ jenkins:
 jobs:
   - script: >
       job('seed') {
+        authenticationToken('${SEED_TRIGGER_TOKEN}')
         scm {
           git {
             remote {

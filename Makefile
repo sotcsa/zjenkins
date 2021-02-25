@@ -1,8 +1,9 @@
 export IMAGE_NAME?=sotcsa/zjenkins
 export IMAGE_VERSION?=latest
 export DOCKERFILE?=docker/Dockerfile
-export JENKINS_ADMIN_PASSWORD=almafa
-export JENKINS_TRIGGER_PASSWORD=almafa
+export JENKINS_ADMIN_PASSWORD?=
+export JENKINS_TRIGGER_PASSWORD?=
+export SEED_TRIGGER_TOKEN?=
 
 all: build/jenkins docker/push/jenkins
 

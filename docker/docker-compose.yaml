@@ -8,7 +8,8 @@ enkins_master:
     - JENKINS_ADMIN_PASSWORD=${JENKINS_ADMIN_PASSWORD}
     - JENKINS_TRIGGER=trigger
     - JENKINS_TRIGGER_PASSWORD=${JENKINS_TRIGGER_PASSWORD}
-    - BASE_URL=http://127.0.0.1:8095/
+    - SEED_TRIGGER_TOKEN=${SEED_TRIGGER_TOKEN}
+    - BASE_URL=${BASE_URL}
   restart: always
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
