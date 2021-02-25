@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    tools {
-        jdk "openjdk15"
-    }
     environment {
         REPO_URL = "https://github.com/sotcsa/zjenkins.git"
         REPO_DIR = "monorepo"
