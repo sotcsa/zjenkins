@@ -30,7 +30,6 @@ jobs:
         with:
           data: "{\"event_type\":\"build\"}"
           webhook_url: ${{ secrets.WEBHOOK_URL }}
-          options: "-H \"Accept: application/vnd.github.everest-preview+json\" -H \"Authorization: token ${{ secrets.TOKEN }}\""
 
 #      # Runs a single command using the runners shell
 #      - name: Run a one-line script
