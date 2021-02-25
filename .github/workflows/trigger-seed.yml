@@ -26,7 +26,7 @@ jobs:
 #      - uses: actions/checkout@v2
 
       - name: Webhook
-        run: curl ${{ secrets.WEBHOOK_URL }}
+        run: curl -u ${{ secrets.JENKINS_TRIGGER_USER }}:${{ secrets.JENKINS_TRIGGER_PASSWORD }} ${{ secrets.WEBHOOK_URL }}
 
 #      # Runs a single command using the runners shell
 #      - name: Run a one-line script
