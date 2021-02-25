@@ -16,7 +16,7 @@ jenkins:
     enabled: true
 jobs:
   - script: >
-      job('Job_DSL_Seed') {
+      job('seed') {
         scm {
           git {
             remote {
@@ -26,7 +26,7 @@ jobs:
         }
         steps {
           jobDsl {
-            targets 'jobs/**/*.groovy'
+            targets 'src/jobs/*.groovy'
           }
         }
       }

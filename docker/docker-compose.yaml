@@ -1,7 +1,7 @@
 enkins_master:
-  image: rsoti/jenkins-jdk11
-  container_name: jenkins
-  user: root
+  image: sotcsa/zjenkins
+  container_name: zjenkins
+  user: jenkins
   environment:
     - TZ=Europe/Budapest
     - JENKINS_ADMIN_ID=admin
@@ -13,9 +13,6 @@ enkins_master:
   volumes:
     - /var/run/docker.sock:/var/run/docker.sock
     - /usr/bin/docker:/usr/bin/docker
-    - /var/jenkins_home:/var/jenkins_home
-    - /opt/zeeg-release-listener:/opt/zeeg-release-listener
-    - /root/.m2:/root/.m2
+    #- /var/jenkins_home:/var/jenkins_home
   ports:
-    - 127.0.0.1:2345:2345
     - 8095:8080
